@@ -1,0 +1,162 @@
+﻿<openerp>
+	<data>
+		<record model="ir.actions.act_window" id="action_juridico_processo_form">
+			<field name="res_model">juridico.processo</field>
+			<field name="domain">[]</field>
+		</record>
+		
+		<menuitem name="Gestão Jurídica" id="menu_juridico_form"  
+		    web_icon="images/martelo-desativado.png"
+            web_icon_hover="images/martelo-ativo.png" />
+		
+		<menuitem name="Processos" id="menu_juridico_processo_form" parent="juridico.menu_juridico_form" action="action_juridico_processo_form"/>
+
+		<record model="ir.ui.view" id="view_juridico_processo_form">
+			<field name="name">juridico.processo</field>
+			<field name="type">form</field>
+			<field name="model">juridico.processo</field>
+			<field name="arch" type="xml">
+				<form string="Processo">
+					<notebook>
+						<page string="General">
+							<separator string="Dados Principais"  colspan="5"/>
+							<field name="name"            select="1" string="Referência Mnemônica Processo" />
+							<field name="categ_id"        select="1" string="Categoria"/>
+							<field name="standard_price"  select="1" string="Valor do Processo" />
+							<field name="data_processo" string="Data do Processo"/>
+							<field name="advogado_responsavel" string="Advogado Responsável"/>
+							
+							<separator string="Características Gerais"  colspan="6"/>
+							<field name="estado_processo"/>
+							<field name="privado" select="1" />
+							<field name="classeprocessual" select="1" />
+							<field name="naturezaacao"     select="1" />							
+							<field name="rito" select="1" />							
+							<field name="forum_escolha" select="1" />			
+							
+							<separator string="Autor"  colspan="4"/>
+							<field name="cliente_id" select="1" string="Cliente"/>
+							<field name="posicao_cliente" select="1" />
+							
+							<separator string="Réu"  colspan="4"/>
+							<field name="cliente_adverso_id" string="Cliente Adverso" />
+							<field name="posicao_cliente_adverso" select="1" />
+						</page>
+						
+					</notebook>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_juridico_processo_arvore">
+			<field name="name">juridico.processo</field>
+			<field name="model">juridico.processo</field>
+			<field name="type">tree</field>
+			<field name="priority" eval="5"/>
+			<field name="arch" type="xml">
+
+				<tree string="Processos">
+					<field name="name" string="Ref. Processo"/>
+					<field name="cliente_id" string="Cliente"/>
+					<field name="posicao_cliente" select="1"  string="Posição do Cliente" />				
+					<field name="data_processo" />
+					<field name="advogado_responsavel" string="Advogado Responsável"/>
+					<field name="estado_processo" string="Status do Processo"/>
+				</tree>		
+				
+			</field>
+		</record>	
+		
+		<record model="ir.actions.act_window" id="action_juridico_ff">
+			<field name="res_model">juridico.forum</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_juridico_forum_arvore">
+			<field name="name">juridico.forum</field>
+			<field name="model">juridico.forum</field>
+			<field name="type">tree</field>
+			<field name="priority" eval="5"/>
+			<field name="arch" type="xml">
+
+				<tree string="Fóruns">
+					<field name="name" 				string="Nome do Fórum"/>
+					<field name="cidade" 			string="Cidade"/>
+					<field name="pais" select="1"  	string="País" />
+				</tree>		
+				
+			</field>
+		</record>
+	
+		<!-- Dados básicos -->
+		<menuitem name="Dados Básicos"     id="menu_juridico_dados_basicos_form"    parent="juridico.menu_juridico_form" />
+	
+		<record model="ir.actions.act_window" id="action_juridico_cc">
+			<field name="res_model">juridico.classe_processual</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_juridico_classeprocessual">
+			<field name="name">juridico.classe_processual</field>
+			<field name="model">juridico.classe_processual</field>
+			<field name="type">tree</field>
+			<field name="priority" eval="5"/>
+			<field name="arch" type="xml">
+
+				<tree string="Classe Processual">
+					<field name="name"			string="Classe Processual"/>
+					<field name="adicionais" 	string="Dados Adicionais"/>
+				</tree>		
+				
+			</field>
+		</record>		
+		
+		<menuitem name="Classe Processual" id="menu_juridico_classeprocessual_form" parent="juridico.menu_juridico_dados_basicos_form" action="action_juridico_cc"/>
+
+		<record model="ir.actions.act_window" id="action_juridico_na">
+			<field name="res_model">juridico.natureza_acao</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_juridico_na">
+			<field name="name">juridico.natureza_acao</field>
+			<field name="model">juridico.natureza_acao</field>
+			<field name="type">tree</field>
+			<field name="priority" eval="5"/>
+			<field name="arch" type="xml">
+
+				<tree string="Natureza da Ação">
+					<field name="name"			string="Natureza da Ação"/>
+					<field name="adicionais" 	string="Dados Adicionais"/>
+				</tree>		
+				
+			</field>
+		</record>			
+		
+		<menuitem name="Natureza da Ação"  id="menu_juridico_naturezaacao_form"     parent="juridico.menu_juridico_dados_basicos_form" action="action_juridico_na"/>
+
+		<record model="ir.actions.act_window" id="action_juridico_rito">
+			<field name="res_model">juridico.rito</field>
+		</record>	
+		
+		<record model="ir.ui.view" id="view_juridico_rito">
+			<field name="name">juridico.rito</field>
+			<field name="model">juridico.rito</field>
+			<field name="type">tree</field>
+			<field name="priority" eval="5"/>
+			<field name="arch" type="xml">
+
+				<tree string="Rito">
+					<field name="name"			string="Rito"/>
+					<field name="adicionais" 	string="Dados Adicionais"/>
+				</tree>		
+				
+			</field>
+		</record>		
+		
+		<menuitem name="Rito"              id="menu_juridico_rito_form"             parent="juridico.menu_juridico_dados_basicos_form" action="action_juridico_rito"/>
+
+		<menuitem name="Fóruns" id="menu_juridico_forum_form" parent="juridico.menu_juridico_dados_basicos_form" action="action_juridico_ff"/>
+		
+		<!-- -->
+		
+		
+	</data>
+</openerp>

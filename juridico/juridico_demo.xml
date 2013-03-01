@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+    	<!-- Resource: juridico.rito -->
+    
+        <record model="juridico.rito" id="rito1" >
+            <field name="name">Especial</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.rito" id="rito2" >
+            <field name="name">Não definido</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.rito" id="rito3" >
+            <field name="name">Sumário</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.rito" id="rito4" >
+            <field name="name">Sumaríssimo</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.classe_processual" id="cp1" >
+            <field name="name">Ação de Cobrança</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.classe_processual" id="cp2" >
+            <field name="name">Ação de Despejo</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.classe_processual" id="cp3" >
+            <field name="name">Ação de Indenizacao</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.classe_processual" id="cp4" >
+            <field name="name">Divórcio</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.classe_processual" id="cp5" >
+            <field name="name">Execução de alimentos</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.classe_processual" id="cp6" >
+            <field name="name">Impugnação do valor da causa</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.natureza_acao" id="na1" >
+            <field name="name">Civel</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.natureza_acao" id="na2" >
+            <field name="name">Criminal</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+		
+        <record model="juridico.natureza_acao" id="na3" >
+            <field name="name">Família</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+
+        <record model="juridico.natureza_acao" id="na4" >
+            <field name="name">Não definido</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+
+        <record model="juridico.natureza_acao" id="na5" >
+            <field name="name">Trabalhista</field>  
+ 		    <field name="adicionais"></field>
+        </record>
+
+    </data>
+</openerp>
